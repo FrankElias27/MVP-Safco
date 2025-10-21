@@ -41,6 +41,10 @@ public class Equipos {
     @JsonIgnore
     private Set<DetalleMovimiento> detalleMovimientos  = new HashSet<>();
 
+    @OneToMany(mappedBy = "equipos",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @JsonIgnore
+    private Set<DetalleRegistro> detalleRegistros  = new HashSet<>();
+
 
 
 }
