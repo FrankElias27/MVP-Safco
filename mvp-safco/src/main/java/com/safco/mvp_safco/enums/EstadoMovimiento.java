@@ -1,4 +1,4 @@
-package com.safco.mvp_safco.models.Enums;
+package com.safco.mvp_safco.enums;
 
 public enum EstadoMovimiento {
     ALMACENADO,

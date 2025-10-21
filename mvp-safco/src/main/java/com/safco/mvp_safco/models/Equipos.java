@@ -1,8 +1,8 @@
 package com.safco.mvp_safco.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.safco.mvp_safco.models.Enums.Estado;
-import com.safco.mvp_safco.models.Enums.Tipo;
+import com.safco.mvp_safco.enums.EstadoEquipo;
+import com.safco.mvp_safco.enums.TipoEquipo;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -34,8 +34,8 @@ public class Equipos {
     private String serieCargador;
     private LocalDate fechaCompra;
     private String macWifi;
-    private Estado estado;
-    private Tipo tipo;
+    private EstadoEquipo estadoEquipo;
+    private TipoEquipo tipoEquipo;
 
     @OneToMany(mappedBy = "equipos",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JsonIgnore
