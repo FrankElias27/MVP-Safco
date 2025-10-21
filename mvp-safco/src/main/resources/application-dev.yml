@@ -1,8 +1,8 @@
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5434/safco
-    username: ${POSTGRES_USER}
-    password: ${POSTGRES_PASSWORD}
+    username: safco
+    password: safco
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
@@ -12,7 +12,8 @@ spring:
       hibernate:
         format_sql: true
       database: postgresql
-      database-platform: org.hibernate.dialect.PostgeSLDialect
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
+
 
 server:
   port: 8080
