@@ -1,4 +1,4 @@
-package com.safco.mvp_safco.responses;
+package com.safco.mvp_safco.models.responses;
 
 import lombok.*;
 

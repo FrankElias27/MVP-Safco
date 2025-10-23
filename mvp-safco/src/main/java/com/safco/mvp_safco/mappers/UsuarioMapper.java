@@ -2,8 +2,8 @@ package com.safco.mvp_safco.mappers;
 
 
 import com.safco.mvp_safco.models.Usuarios;
-import com.safco.mvp_safco.requests.UsuarioRequest;
-import com.safco.mvp_safco.responses.UsuarioResponse;
+import com.safco.mvp_safco.models.requests.UsuarioRequest;
+import com.safco.mvp_safco.models.responses.UsuarioResponse;
 import org.springframework.stereotype.Service;
 
 @Service

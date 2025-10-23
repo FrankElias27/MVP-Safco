@@ -1,4 +1,4 @@
-package com.safco.mvp_safco.requests;
+package com.safco.mvp_safco.models.requests;
 
 public record UsuarioRequest (
         Long idUsuario,

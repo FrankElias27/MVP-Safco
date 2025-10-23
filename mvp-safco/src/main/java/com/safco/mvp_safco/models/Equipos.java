@@ -1,8 +1,8 @@
 package com.safco.mvp_safco.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.safco.mvp_safco.enums.EstadoEquipo;
-import com.safco.mvp_safco.enums.TipoEquipo;
+import com.safco.mvp_safco.models.enums.EstadoEquipo;
+import com.safco.mvp_safco.models.enums.TipoEquipo;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;

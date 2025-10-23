@@ -1,8 +1,8 @@
 package com.safco.mvp_safco.controllers;
 
 import com.safco.mvp_safco.commons.PageResponse;
-import com.safco.mvp_safco.requests.UsuarioRequest;
-import com.safco.mvp_safco.responses.UsuarioResponse;
+import com.safco.mvp_safco.models.requests.UsuarioRequest;
+import com.safco.mvp_safco.models.responses.UsuarioResponse;
 import com.safco.mvp_safco.services.UsuariosService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
