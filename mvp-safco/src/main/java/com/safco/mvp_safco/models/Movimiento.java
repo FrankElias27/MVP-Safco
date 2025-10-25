@@ -16,8 +16,8 @@ import java.util.Set;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "Movimientos")
-public class Movimientos {
+@Table(name = "movimiento")
+public class Movimiento {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,7 +43,7 @@ public class Movimientos {
     private String motivoDevolucion;
     private EstadoMovimiento estado;
 
-    @OneToMany(mappedBy = "movimientos",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "movimiento",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<DetalleMovimiento> detalleMovimientos  = new HashSet<>();
 

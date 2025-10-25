@@ -3,7 +3,7 @@ package com.safco.mvp_safco.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Detalles_Movimiento")
+@Table(name = "detalle_movimiento")
 public class DetalleMovimiento {
 
     @Id
@@ -13,10 +13,10 @@ public class DetalleMovimiento {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "equipo_id", nullable = false)
-    private Equipos equipos;
+    private Equipo equipo;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "movimiento_id", nullable = false)
-    private Movimientos movimientos;
+    private Movimiento movimiento;
 
 }

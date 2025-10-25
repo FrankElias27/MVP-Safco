@@ -1,16 +1,17 @@
 package com.safco.mvp_safco.repositories;
 
-import com.safco.mvp_safco.models.Usuarios;
+import com.safco.mvp_safco.models.Categoria;
+import com.safco.mvp_safco.models.Usuario;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
-public interface UsuariosRepository extends JpaRepository<Usuarios,Long> {
+public interface CategoriaRepository extends JpaRepository<Categoria,Long> {
 
     @Query("""
-            SELECT u
-            FROM Usuarios u
+            SELECT c
+            FROM Categoria c
             """)
-    Page<Usuarios> findAllDisplayableUsuarios(Pageable pageable);
+    Page<Categoria> findAllDisplayableCategorias(Pageable pageable);
 }

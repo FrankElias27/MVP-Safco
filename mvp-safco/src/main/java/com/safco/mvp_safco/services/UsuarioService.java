@@ -2,8 +2,8 @@ package com.safco.mvp_safco.services;
 
 import com.safco.mvp_safco.commons.PageResponse;
 import com.safco.mvp_safco.mappers.UsuarioMapper;
-import com.safco.mvp_safco.models.Usuarios;
-import com.safco.mvp_safco.repositories.UsuariosRepository;
+import com.safco.mvp_safco.models.Usuario;
+import com.safco.mvp_safco.repositories.UsuarioRepository;
 import com.safco.mvp_safco.models.requests.UsuarioRequest;
 import com.safco.mvp_safco.models.responses.UsuarioResponse;
 import lombok.RequiredArgsConstructor;
@@ -17,19 +17,19 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class UsuariosService {
+public class UsuarioService {
 
-    private final UsuariosRepository usuariosRepository;
+    private final UsuarioRepository usuarioRepository;
     private final UsuarioMapper usuarioMapper;
 
     public Long save(UsuarioRequest request){
-        Usuarios usuarios = usuarioMapper.toUsuarios(request);
-        return usuariosRepository.save(usuarios).getIdUsuario();
+        Usuario usuario = usuarioMapper.toUsuarios(request);
+        return usuarioRepository.save(usuario).getIdUsuario();
     }
 
     public PageResponse<UsuarioResponse> findAllUsuarios(int page, int size){
         Pageable pageable = PageRequest.of(page, size, Sort.by("idUsuario").descending());
-        Page<Usuarios> usuarios = usuariosRepository.findAllDisplayableUsuarios(pageable);
+        Page<Usuario> usuarios = usuarioRepository.findAllDisplayableUsuarios(pageable);
         List<UsuarioResponse> usuarioResponses = usuarios.stream()
                 .map(usuarioMapper::toUsuarioResponse)
                 .toList();
@@ -45,9 +45,9 @@ public class UsuariosService {
     }
 
     public void deleteUsuario(Long idUsuario){
-        Usuarios usuarios = usuariosRepository.findById(idUsuario)
+        Usuario usuario = usuarioRepository.findById(idUsuario)
                 .orElseThrow(()-> new RuntimeException("Usuario no encontrado con ID: "+ idUsuario));
-        usuariosRepository.delete(usuarios);
+        usuarioRepository.delete(usuario);
     }
 
 

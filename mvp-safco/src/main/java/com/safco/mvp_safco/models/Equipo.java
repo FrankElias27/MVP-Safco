@@ -4,14 +4,20 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.safco.mvp_safco.models.enums.EstadoEquipo;
 import com.safco.mvp_safco.models.enums.TipoEquipo;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Entity
-@Table(name = "Equipos")
-public class Equipos {
+@Table(name = "equipo")
+public class Equipo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,16 +40,24 @@ public class Equipos {
     private String serieCargador;
     private LocalDate fechaCompra;
     private String macWifi;
+
+    @Enumerated(EnumType.STRING)
     private EstadoEquipo estadoEquipo;
+
+    @Enumerated(EnumType.STRING)
     private TipoEquipo tipoEquipo;
 
-    @OneToMany(mappedBy = "equipos",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "equipo",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<DetalleMovimiento> detalleMovimientos  = new HashSet<>();
 
-    @OneToMany(mappedBy = "equipos",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "equipo",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JsonIgnore
     private Set<DetalleRegistro> detalleRegistros  = new HashSet<>();
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "categoria_id", nullable = false)
+    private Categoria categoria;
 
 
 
