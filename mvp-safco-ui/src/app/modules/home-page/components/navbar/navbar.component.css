@@ -1,0 +1,6 @@
+
+.navbar-logged {
+  background: linear-gradient(135deg, #ec3025, #a81d15);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 10px rgba(236, 48, 37, 0.4);
+}

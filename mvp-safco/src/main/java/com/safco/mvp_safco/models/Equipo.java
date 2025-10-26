@@ -25,7 +25,6 @@ public class Equipo {
 
     private String codInterno;
     private String empresaCompra;
-
     private String linea;
     private String marca;
     private String modelo;
@@ -40,6 +39,8 @@ public class Equipo {
     private String serieCargador;
     private LocalDate fechaCompra;
     private String macWifi;
+    private String licenciaOffice;
+    private String licenciaAntivirus;
 
     @Enumerated(EnumType.STRING)
     private EstadoEquipo estadoEquipo;
@@ -55,9 +56,7 @@ public class Equipo {
     @JsonIgnore
     private Set<DetalleRegistro> detalleRegistros  = new HashSet<>();
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "categoria_id", nullable = false)
-    private Categoria categoria;
+
 
 
 

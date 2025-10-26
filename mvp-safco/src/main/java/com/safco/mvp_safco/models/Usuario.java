@@ -23,7 +23,11 @@ public class Usuario {
     private String nombre;
     private String apellido;
     private String dni;
+    private String telefono;
     private String anyDesk;
+    private String area;
+    private String empresaAsignada;
+    private String ubicacion;
 
     @OneToMany(mappedBy = "usuario",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @JsonIgnore

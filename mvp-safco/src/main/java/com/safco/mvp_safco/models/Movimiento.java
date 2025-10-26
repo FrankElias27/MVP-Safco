@@ -23,24 +23,14 @@ public class Movimiento {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idMovimiento;
 
+    private LocalDate fechaMovimiento;
+    private String observacionMovimiento;
+    private String motivoMovimiento;
+
+    @Enumerated(EnumType.STRING)
     private TipoMovimiento tipo;
-    private String codInterno;
-    private String equipo;
-    private String marca;
-    private String modelo;
-    private String serie;
-    private String licenciaOffice;
-    private String licenciaAntivirus;
-    private String dni;
-    private String responsable;
-    private String area;
-    private String empresaAsignada;
-    private String ubicacion;
-    private LocalDate fechaEntrega;
-    private String observacionEntrega;
-    private LocalDate fechaDevolucion;
-    private String observacionDevolucion;
-    private String motivoDevolucion;
+
+    @Enumerated(EnumType.STRING)
     private EstadoMovimiento estado;
 
     @OneToMany(mappedBy = "movimiento",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
