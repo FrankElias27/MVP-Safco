@@ -14,8 +14,5 @@ public class MovimientoService {
     private final MovimientoRepository movimientoRepository;
     private final MovimientoMapper movimientoMapper;
 
-    public Long save(MovimientoRequest request){
-        Movimiento movimiento = movimientoMapper.toMovimientos(request);
-        return movimientoRepository.save(movimiento).getIdMovimiento();
-    }
+    
 }

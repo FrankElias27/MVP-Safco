@@ -1,6 +1,7 @@
 package com.safco.mvp_safco.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.safco.mvp_safco.models.enums.TipoEmpresa;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,7 +27,8 @@ public class Usuario {
     private String telefono;
     private String anyDesk;
     private String area;
-    private String empresaAsignada;
+    @Enumerated(EnumType.STRING)
+    private TipoEmpresa empresaAsignada;
     private String ubicacion;
 
     @OneToMany(mappedBy = "usuario",fetch = FetchType.LAZY,cascade = CascadeType.ALL)

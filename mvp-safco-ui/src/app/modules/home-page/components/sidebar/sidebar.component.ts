@@ -21,9 +21,9 @@ export class SidebarComponent {
   });
   }
 
-  goToCategories() {
+  goToComputers() {
   const isMobile = window.innerWidth <= 768;
-  this.router.navigate(['/home/categories']).then(() => {
+  this.router.navigate(['/home/computers']).then(() => {
     if (isMobile) {
       this.closeSidebar();
     }

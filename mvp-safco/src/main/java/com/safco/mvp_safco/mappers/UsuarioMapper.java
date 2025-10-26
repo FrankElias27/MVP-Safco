@@ -15,7 +15,11 @@ public class UsuarioMapper {
                 .nombre(request.nombre())
                 .apellido(request.apellido())
                 .dni(request.dni())
+                .telefono(request.telefono())
                 .anyDesk(request.anyDesk())
+                .area(request.area())
+                .empresaAsignada(request.empresaAsignada())
+                .ubicacion(request.ubicacion())
                 .build();
 
     }
@@ -26,7 +30,11 @@ public class UsuarioMapper {
                 .nombre(usuario.getNombre())
                 .apellido(usuario.getApellido())
                 .dni(usuario.getDni())
+                .telefono(usuario.getTelefono())
                 .anyDesk(usuario.getAnyDesk())
+                .area(usuario.getArea())
+                .empresaAsignada(usuario.getEmpresaAsignada())
+                .ubicacion(usuario.getUbicacion())
                 .build();
     }
 

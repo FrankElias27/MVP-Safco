@@ -15,9 +15,9 @@ const routes: Routes = [
           import('./pages/home/home.component').then(m => m.HomeComponent),
       },
        {
-        path: 'categories',
+        path: 'computers',
         loadComponent: () =>
-          import('./pages/categories/categories.component').then(m => m.CategoriesComponent),
+          import('./pages/computers/computers.component').then(m => m.ComputersComponent),
       },
     ],
   },
