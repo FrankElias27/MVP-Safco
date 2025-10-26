@@ -6,7 +6,8 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { EquipoResponse } from '../../../../services/models';
 import { EquiposControllerService } from '../../../../services/services/equipos-controller.service';
-import { HttpClientModule } from '@angular/common/http';
+import Swal from 'sweetalert2';
+import { CreateComputerComponent } from '../../modals/create-computer/create-computer.component';
 
 @Component({
   selector: 'app-computers',
@@ -56,61 +57,39 @@ export class ComputersComponent implements OnInit {
     this.loadEquipos();
   }
 
-  /*
-  openAddEventModal() {
-    const dialogRef = this.dialog.open(CreateEventComponent, {
+
+  openAddComputerModal() {
+    const dialogRef = this.dialog.open(CreateComputerComponent, {
       width: '600px',
+
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (!result) return; // Si no hay resultado, salimos
-
-      if (result.defaultLayout) {
-        // Caso defaultLayout = true
-        this.eventsService.saveEventDefault({ body: result }).subscribe({
-          next: (response: EventResponse) => {
-            console.log('Evento creado con ID:', response.eventId);
-            this.loadEvents();
+      if (result) {
+        console.log('Enviando al backend:', result);
+        this.equiposService.createEquipo({ body: result }).subscribe({
+          next: (newComputer) => {
+            console.log('Computer creado:', newComputer);
+            this.loadEquipos();
             Swal.fire({
               icon: 'success',
-              title: '¡Evento guardado!',
-              text: 'El evento ha sido creado exitosamente.',
-              confirmButtonText: 'OK',
+              title: '¡Equipo guardado!',
+              text: 'El equipo ha sido creado exitosamente.',
+              confirmButtonText: 'OK'
             });
           },
-          error: (error: any) => {
-            console.error('Error al crear evento:', error);
+          error: (error) => {
+            console.error('Error al crear equipo:', error);
             Swal.fire({
               icon: 'error',
               title: 'Error',
-              text: 'No se pudo crear el evento.',
-            });
-          }
-        });
-      } else {
-        // Caso defaultLayout = false
-        this.eventsService.saveEvent({ body: result }).subscribe({
-          next: (newEventId: number) => {
-            console.log('Evento creado con ID:', newEventId);
-            this.loadEvents();
-            Swal.fire({
-              icon: 'success',
-              title: '¡Evento guardado!',
-              text: 'El evento ha sido creado exitosamente.',
-              confirmButtonText: 'OK',
-            });
-          },
-          error: (error: any) => {
-            console.error('Error al crear evento:', error);
-            Swal.fire({
-              icon: 'error',
-              title: 'Error',
-              text: 'No se pudo crear el evento.',
+              text: error.error?.mensaje || 'No se pudo guardar el equipo.'
             });
           }
         });
       }
     });
-  } */
+  }
+
 
 }

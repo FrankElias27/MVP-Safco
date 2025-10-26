@@ -1,0 +1,92 @@
+<section class="bg-white dark:bg-gray-900">
+  <div class="py-8 px-4 mx-auto max-w-2xl lg:py-16">
+    <h2 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Registrar nuevo Equipo</h2>
+
+    <form [formGroup]="equipoForm" (ngSubmit)="onSubmit()">
+      <div class="grid gap-4 sm:grid-cols-2 sm:gap-6">
+
+        <div class="w-full">
+          <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">CodInterno</label>
+          <input type="text" name="codInterno" id="codInterno" formControlName="codInterno" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Codigo Interno" required="">
+        </div>
+
+        <div class="w-full">
+          <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">EmpresaCompra</label>
+          <input type="text" name="empresaCompra" id="empresaCompra" formControlName="empresaCompra" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Empresa de Compra" required="">
+        </div>
+
+        <div>
+          <label for="Linea" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Linea</label>
+          <select id="Linea"  formControlName="linea" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+            <option selected="">Selecciona la Linea</option>
+            <option value="Laptop">Laptop</option>
+          </select>
+        </div>
+
+        <div class="w-full">
+          <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Marca</label>
+          <input type="text" name="marca" id="marca" formControlName="marca" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Marca" required="">
+        </div>
+
+        <div class="w-full">
+          <label for="brand" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Modelo</label>
+          <input type="text" name="modelo" id="modelo" formControlName="modelo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Modelo" required="">
+        </div>
+
+        <div class="w-full">
+          <label for="price" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Serie</label>
+          <input type="text" name="serie" id="serie" formControlName="serie" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Serie" required="">
+        </div>
+
+
+        <div class="sm:col-span-2">
+          <label for="date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Fecha Compra</label>
+          <input type="date" id="date" formControlName="fechaCompra"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg
+                   focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5
+                   dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
+                   dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+        </div>
+
+        <div>
+          <label for="estadoEquipo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Estado</label>
+          <select id="estadoEquipo" formControlName="estadoEquipo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+            <option selected="">Selecciona el Estado</option>
+            <option value="RENOVADA">RENOVADA</option>
+            <option value="DEVUELTA">DEVUELTA</option>
+            <option value="OPERATIVA">OPERATIVA</option>
+            <option value="ROBADA">ROBADA</option>
+
+          </select>
+        </div>
+
+        <div>
+          <label for="TipoEquipo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tipo</label>
+          <select id="TipoEquipo" formControlName="tipoEquipo" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+            <option selected="">Selecciona el Tipo</option>
+            <option value="ALQUILADA">ALQUILADA</option>
+            <option value="SAFCO">SAFCO</option>
+          </select>
+        </div>
+
+
+
+      </div>
+
+      <!-- Buttons -->
+      <div class="flex gap-3">
+        <button type="submit"
+          class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium
+                 text-center text-white bg-red-700 rounded-lg focus:ring-4
+                 focus:ring-primary-200 dark:focus:ring-primary-900 hover:bg-red-800">
+          Registrar Equipo
+        </button>
+        <button type="button" (click)="onCancel()"
+          class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium
+                 text-center text-gray-700 bg-gray-200 rounded-lg hover:bg-gray-300">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
