@@ -8,6 +8,7 @@ import { EquipoResponse } from '../../../../services/models';
 import { EquiposControllerService } from '../../../../services/services/equipos-controller.service';
 import Swal from 'sweetalert2';
 import { CreateComputerComponent } from '../../modals/create-computer/create-computer.component';
+import { TechnicalDetailComponent } from '../../modals/technical-detail/technical-detail.component';
 
 @Component({
   selector: 'app-computers',
@@ -87,6 +88,20 @@ export class ComputersComponent implements OnInit {
             });
           }
         });
+      }
+    });
+  }
+
+   openDetailsModal(idEquipo: number): void {
+    const dialogRef = this.dialog.open(TechnicalDetailComponent, {
+      panelClass: 'custom-modal',
+      width: '60vw',
+      data: { idEquipo },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === 'updated') {
+        this.loadEquipos();
       }
     });
   }
