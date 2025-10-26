@@ -16,6 +16,9 @@ spring:
       database: postgresql
       database-platform: org.hibernate.dialect.PostgreSQLDialect
 
+application:
+  cors:
+    origins: 'http://localhost:4200'
 
 server:
   port: 8080

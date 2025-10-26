@@ -1,0 +1,32 @@
+.mat-mdc-table {
+  background-color: #ffffff;
+}
+
+.mat-mdc-row {
+  background-color: #ffffff;
+}
+
+.mat-mdc-row:hover {
+  background-color: #ffffff;
+}
+
+.mat-mdc-header-row {
+  background-color: #ffffff;
+}
+
+.mat-mdc-cell {
+  background-color: #ffffff;
+}
+
+.boton {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 10px;
+    padding: 4px 10px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+.boton mat-icon {
+    margin-right: 5px;
+  }

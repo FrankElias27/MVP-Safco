@@ -14,5 +14,5 @@ public class MovimientoService {
     private final MovimientoRepository movimientoRepository;
     private final MovimientoMapper movimientoMapper;
 
-    
+
 }
