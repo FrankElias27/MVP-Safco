@@ -63,4 +63,27 @@ public class EquipoMapper {
                 .tipoEquipo(equipo.getTipoEquipo())
                 .build();
     }
+
+    public void updateEquipoFromRequest(EquipoRequest request, Equipo equipo) {
+        equipo.setCodInterno(request.codInterno());
+        equipo.setEmpresaCompra(request.empresaCompra());
+        equipo.setLinea(request.linea());
+        equipo.setMarca(request.marca());
+        equipo.setModelo(request.modelo());
+        equipo.setSerie(request.serie());
+        equipo.setProcesador(request.procesador());
+        equipo.setDescripcionProce(request.descripcionProce());
+        equipo.setMemoriaRam(request.memoriaRam());
+        equipo.setCaracRAM(request.caracRAM());
+        equipo.setCapacidadDiscoD(request.capacidadDiscoD());
+        equipo.setCaracDiscoD(request.caracDiscoD());
+        equipo.setModeloCargador(request.modeloCargador());
+        equipo.setSerieCargador(request.serieCargador());
+        equipo.setFechaCompra(request.fechaCompra());
+        equipo.setMacWifi(request.macWifi());
+        equipo.setLicenciaOffice(request.licenciaOffice());
+        equipo.setLicenciaAntivirus(request.licenciaAntivirus());
+        equipo.setEstadoEquipo(request.estadoEquipo());
+        equipo.setTipoEquipo(request.tipoEquipo());
+    }
 }

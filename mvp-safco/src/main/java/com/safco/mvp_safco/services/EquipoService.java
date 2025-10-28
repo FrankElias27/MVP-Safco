@@ -46,6 +46,19 @@ public class EquipoService {
         );
     }
 
+    public EquipoResponse findEquipoById(Long idEquipo) {
+        Equipo equipo = equipoRepository.findById(idEquipo)
+                .orElseThrow(() -> new RuntimeException("Equipo no encontrado con ID: " + idEquipo));
+        return equipoMapper.toEquipoResponse(equipo);
+    }
+
+    public Long updateEquipo(Long idEquipo, EquipoRequest request) {
+        Equipo equipoExistente = equipoRepository.findById(idEquipo)
+                .orElseThrow(() -> new RuntimeException("Equipo no encontrado con ID: " + idEquipo));
+        equipoMapper.updateEquipoFromRequest(request, equipoExistente);
+        return equipoRepository.save(equipoExistente).getIdEquipo();
+    }
+
     public void deleteEquipo(Long idEquipo) {
         Equipo equipo = equipoRepository.findById(idEquipo)
                 .orElseThrow(() -> new RuntimeException("Equipo no encontrado con ID: " + idEquipo));
