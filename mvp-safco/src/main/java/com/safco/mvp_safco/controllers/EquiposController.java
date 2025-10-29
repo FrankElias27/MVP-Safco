@@ -29,6 +29,23 @@ public class EquiposController {
         return ResponseEntity.ok(equipoService.findAllEquipos(page, size));
     }
 
+
+    @GetMapping("/{idEquipo}")
+    public ResponseEntity<EquipoResponse> findEquipoById(@PathVariable Long idEquipo) {
+        EquipoResponse response = equipoService.findEquipoById(idEquipo);
+        return ResponseEntity.ok(response);
+    }
+
+
+    @PutMapping("/{idEquipo}")
+    public ResponseEntity<Long> updateEquipo(
+            @PathVariable Long idEquipo,
+            @Valid @RequestBody EquipoRequest equipoRequest
+    ) {
+        Long updatedId = equipoService.updateEquipo(idEquipo, equipoRequest);
+        return ResponseEntity.ok(updatedId);
+    }
+
     @DeleteMapping("/{idEquipo}")
     public ResponseEntity<Void> deleteEquipo(@PathVariable Long idEquipo) {
         equipoService.deleteEquipo(idEquipo);

@@ -16,6 +16,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -47,16 +48,27 @@ public class EquipoService {
     }
 
     public EquipoResponse findEquipoById(Long idEquipo) {
-        Equipo equipo = equipoRepository.findById(idEquipo)
-                .orElseThrow(() -> new RuntimeException("Equipo no encontrado con ID: " + idEquipo));
-        return equipoMapper.toEquipoResponse(equipo);
+        Optional<Equipo> optionalEquipo = equipoRepository.findById(idEquipo);
+
+        if (optionalEquipo.isEmpty()) {
+            return null;
+        }
+
+        return equipoMapper.toEquipoResponse(optionalEquipo.get());
     }
 
     public Long updateEquipo(Long idEquipo, EquipoRequest request) {
-        Equipo equipoExistente = equipoRepository.findById(idEquipo)
-                .orElseThrow(() -> new RuntimeException("Equipo no encontrado con ID: " + idEquipo));
+        Optional<Equipo> optionalEquipo = equipoRepository.findById(idEquipo);
+
+        if (optionalEquipo.isEmpty()) {
+            return null;
+        }
+
+        Equipo equipoExistente = optionalEquipo.get();
         equipoMapper.updateEquipoFromRequest(request, equipoExistente);
-        return equipoRepository.save(equipoExistente).getIdEquipo();
+        equipoRepository.save(equipoExistente);
+
+        return equipoExistente.getIdEquipo();
     }
 
     public void deleteEquipo(Long idEquipo) {
